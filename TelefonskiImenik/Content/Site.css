@@ -1,0 +1,94 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/*Overridane bootstrap klase*/
+
+/*Navigacijska traka*/
+.navbar-inverse {
+    background-color: #428bca;
+    border-color: #428bca;
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #000000;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #000000;
+    }
+
+/*Body*/
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    line-height: 1.1;
+}
+
+/*Forma*/
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.btn {
+margin-top:10px;
+}
+/*Osoba detalji*/
+.dl-horizontal dd {
+    margin-left: 60px;
+    font-size: large;
+    word-break:break-all;
+}
+
+.dl-horizontal dt {
+    width: 95px;
+    font-size: large;
+}
+
+.img-thumbnail {
+    margin-bottom:20px;
+}
+
+/*Tablica*/
+table {
+    margin: 0 auto;
+    width: 100%;
+    clear: both;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap:break-word;
+}

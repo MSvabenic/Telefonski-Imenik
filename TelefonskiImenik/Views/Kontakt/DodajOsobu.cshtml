@@ -1,0 +1,53 @@
+﻿@model Models.ViewModels.OsobaViewModel
+@{
+    ViewBag.Title = "Dodaj osobu";
+}
+
+<h2>Dodaj osobu</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <form class="form-horizontal" id="forma1" name="forma1" enctype="multipart/form-data">
+                <div class:"form-group">
+                    @Html.HiddenFor(m => m.osobaid, new { id = "userId" })
+                </div>
+                <div class:"form-group">
+                    @Html.ValidationMessageFor(m => m.Ime, "", new { @class = "text-danger" }) <br />
+                    @Html.LabelFor(m => m.Ime)
+                    @Html.TextBoxFor(m => m.Ime, new { id = "ime", @class = "form-control" })
+                </div>
+                <div class:"form-group">
+                    @Html.ValidationMessageFor(m => m.Prezime, "", new { @class = "text-danger" })<br />
+                    @Html.LabelFor(m => m.Prezime)
+                    @Html.TextBoxFor(m => m.Prezime, new { id = "prezime", @class = "form-control" })
+                </div>
+                <div class:"form-group">
+                    @Html.ValidationMessageFor(m => m.Grad, "", new { @class = "text-danger" }) <br />
+                    @Html.LabelFor(m => m.Grad)
+                    @Html.DropDownListFor(x => x.Grad, new SelectList(Enumerable.Empty<SelectListItem>()), new { id = "gradId", @class = "form-control" })
+                </div>
+                <div class:"form-group">
+                    @Html.LabelFor(m => m.Opis)
+                    @Html.TextAreaFor(m => m.Opis, new { id = "opis", @class = "form-control" })
+                </div>
+                <div class:"form-group">
+                    <label for="slika" class="btn">Odabir slike</label>
+                    <input id="slika" name="image" style="visibility: hidden;" type="file">
+                </div>
+                <label id="slikaTekst"></label>
+                <div>
+                    <button id="btn1" name="spremi" type="submit" class="btn btn-primary">Spremi</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6">
+            <img src="~/Content/Slike/osobe.jpg" height="350" width="350" class="img-rounded"/>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Custom/DodajOsobu.js"></script>
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
