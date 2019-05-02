@@ -7,17 +7,29 @@
         broj.Broj = $("#broj").val();
         broj.Opis = $("#opis").val();
 
-        axios({
-            method: 'post',
-            url: '/Broj/DodajBroj',
-            data: broj
-        }).then(response => {
-            console.log(response);
-            window.location.href = "/Kontakt/DodajBroj";
-        }).catch(response => {
-            console.log(response);
-        });
+        let isValid = true;
+        if (broj.OsobaId === "" || broj.OsobaId === undefined) {
+            return isValid = false;
+        }
+        if (broj.BrojTipId === "" || broj.BrojTipId === undefined) {
+            return isValid = false;
+        }
+        if (broj.Broj === "" || broj.Broj === undefined) {
+            return isValid = false;
+        }
 
+        if (isValid) {
+            axios({
+                method: 'post',
+                url: '/Broj/DodajBroj',
+                data: broj
+            }).then(response => {
+                console.log(response);
+                window.location.href = "/Kontakt/DodajBroj";
+            }).catch(response => {
+                console.log(response);
+            });
+        }
         e.preventDefault();
     });
 

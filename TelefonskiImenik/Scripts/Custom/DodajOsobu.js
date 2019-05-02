@@ -13,17 +13,29 @@
         osoba.Slika = slikaBin;
         osoba.UserId = $("#userId").val();
 
-        axios({
-            method: 'post',
-            url: '/Osoba/DodajOsobu',
-            data: osoba
-        }).then(response => {
-            console.log(response);
-            window.location.href = "/Kontakt/DodajBroj";
-        }).catch(response => {
-            console.log(response);
-        });
+        let isValid = true;
+        if (osoba.Ime === "" || osoba.Ime === undefined) {
+            return isValid = false;
+        }
+        if (osoba.Prezime === "" || osoba.Prezime === undefined) {
+            return isValid = false;
+        }
+        if (osoba.GradId === "" || osoba.GradId === undefined) {
+            return isValid = false;
+        }
 
+        if (isValid) {
+            axios({
+                method: 'post',
+                url: '/Osoba/DodajOsobu',
+                data: osoba
+            }).then(response => {
+                console.log(response);
+                window.location.href = "/Kontakt/DodajBroj";
+            }).catch(response => {
+                console.log(response);
+            });
+        }
         e.preventDefault();
     });
 
